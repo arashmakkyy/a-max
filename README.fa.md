@@ -1,4 +1,4 @@
-# A.max — افزونهٔ کروم
+# &rlm;A.max — افزونهٔ کروم
 
 <p>
   <img alt="فارسی" src="https://img.shields.io/badge/%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-0d9488">
@@ -13,7 +13,7 @@
   <img alt="۲۰ سایت هوش مصنوعی" src="https://img.shields.io/badge/AI%20sites-20-0d9488">
 </p>
 
-A.max یک افزونهٔ متن‌باز و محلی برای کسانی است که بیشتر وقتشان را داخل پنجرهٔ گفتگوی هوش مصنوعی
+&rlm;A.max یک افزونهٔ متن‌باز و محلی برای کسانی است که بیشتر وقتشان را داخل پنجرهٔ گفتگوی هوش مصنوعی
 می‌گذرانند. گفتگو را به PDF، Word، Markdown، PNG، JSON، TXT، HTML یا CSV تبدیل می‌کند، به هر پاسخ یک
 دکمهٔ خروجی کوچک اضافه می‌کند، پیش‌نویس پرامپت هر گفتگو را جدا و سرِ جای خودش نگه می‌دارد و متن فارسی و
 راست‌به‌چپ را در ChatGPT، Claude، Gemini، DeepSeek، Qwen، Grok، Perplexity، Kimi، Poe، Copilot و ۱۰
@@ -70,7 +70,7 @@ npm install
 npm run build
 ```
 
-`npm run build` ابتدا `scripts/sync-engine.mjs` را اجرا می‌کند؛ این اسکریپت موتور مشترک خروجی
+&rlm;`npm run build` ابتدا `scripts/sync-engine.mjs` را اجرا می‌کند؛ این اسکریپت موتور مشترک خروجی
 (`src/engine/*.js` و `src/shared/engine-bridge.js`) را در `app/public/engine` کپی می‌کند تا صفحات افزونه
 و اسکریپت محتوا همیشه یک کد را اجرا کنند. خروجی Build شامل `dist/index.html`، `dist/assets/*`،
 `dist/engine/*` و `dist/fonts/*` است. یک صفحه همهٔ ورودی‌ها را با hash/query سرو می‌کند:
@@ -91,7 +91,7 @@ npm run build
   کناری — با پشتیبانی کیبورد و صفحه‌خوان، و portal‌شده تا هیچ کادر پیامی آن را نبُرد.
 - **هشت فرمت خروجی:** PDF، فایل واقعی OOXML با پسوند `.docx`، Markdown، PNG (تصویر بلند، در صورت نیاز
   تقسیم‌شده در ZIP)، JSON، TXT، HTML و CSV — به‌همراه کپی به‌صورت Markdown / TXT / JSON.
-- **PDF قابل جست‌وجو:** سند HTML برداری از طریق `src/print/print.html` چاپ می‌شود؛ در پنجرهٔ چاپ
+- &rlm;**PDF قابل جست‌وجو:** سند HTML برداری از طریق `src/print/print.html` چاپ می‌شود؛ در پنجرهٔ چاپ
   «Save as PDF» را انتخاب کنید.
 - **فونت وزیرمتن میزبانی‌شده** (`app/public/fonts`، پروانهٔ OFL-1.1) — رابط و صفحهٔ چاپ آفلاین کار
   می‌کنند.
@@ -138,7 +138,7 @@ npm run build
 
 ## پروانه
 
-MIT © ۲۰۲۶ [آرش مکّی](https://github.com/arashmakkyy). فونت وزیرمتن همراه پروانهٔ OFL-1.1 دارد؛
+&rlm;MIT © ۲۰۲۶ [آرش مکّی](https://github.com/arashmakkyy). فونت وزیرمتن همراه پروانهٔ OFL-1.1 دارد؛
 `app/public/fonts` را ببینید.
 
 ## مراجع

@@ -1,7 +1,7 @@
 # A.max 1.2.0 — technical verification report
 
 Date: 2026-11-09 · Build: `release/a-max-1.2.0` (53 files) · Archive: `release/a-max-1.2.0.zip` (399.5 KB)
-SHA-256: `914f5621b4b4dd5a2930385c5fde9ad6e5b14bc034cadeaef85713e81b23b523`
+SHA-256: `eff743ce1139d0f2f275b87bfae626cda5da588c642dffcae451639b9f636e0c`
 
 This report only states what was actually executed. Every claim is labelled with its
 evidence class:
