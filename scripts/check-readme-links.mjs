@@ -4,10 +4,9 @@
  *
  * Usage: node scripts/check-readme-links.mjs
  */
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readFileSync } from 'node:fs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const READMES = ['README.md', 'README.fa.md'];
