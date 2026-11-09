@@ -1,7 +1,7 @@
 # A.max 1.2.0 — technical verification report
 
-Date: 2026-11-08 · Build: `release/a-max-1.2.0` (52 files) · Archive: `release/a-max-1.2.0.zip` (393.7 KB)
-SHA-256: `12a2508dc75c3883a2f9fc40c4d0f0f4735c5799c99b5011e6d7c48ee9db6518`
+Date: 2026-11-09 · Build: `release/a-max-1.2.0` (53 files) · Archive: `release/a-max-1.2.0.zip` (399.5 KB)
+SHA-256: `914f5621b4b4dd5a2930385c5fde9ad6e5b14bc034cadeaef85713e81b23b523`
 
 This report only states what was actually executed. Every claim is labelled with its
 evidence class:
@@ -21,11 +21,14 @@ evidence class:
 | Gate | Command | Result |
 |---|---|---|
 | TypeScript | `npx tsc --noEmit` (in `app/`) | pass, exit 0, no diagnostics |
-| Production build | `npm run build` | pass — `dist/assets/index-DumENav3.js`, `index-C2o1LpzF.css`, `dist/engine/*` (9 synced files) |
+| Production build | `npm run build` | pass — `dist/assets/index-2nkJ4kWf.js`, `index-B_ZT4P2i.css`, `dist/engine/*` (9 synced files) |
 | UI / engine harness | `node verify.js` | **154/154** |
 | Content-script + SW harness | `node content-verify.js` | **96/96** |
-| Package | `npm run package` | pass — 52 files, 393.7 KB ZIP, SHA-256 recorded above |
+| Package | `npm run package` | pass — 53 files, 399.5 KB ZIP, SHA-256 recorded above; repacking the same tree twice produced an identical archive |
 | Syntax | `node --check` on `content.js`, `i18n.js`, `history.js` | pass |
+| README links | `node scripts/check-readme-links.mjs` | pass — 20 local links/images resolve |
+| README screenshots | headless Chromium capture (2× DPR) | pass — 5 PNGs captured through the chrome-mocked harness |
+| CI | `.github/workflows/ci.yml` | mirrors the gates above: `npm ci`, `tsc --noEmit`, `npm run build`, `git diff --exit-code -- dist app/public/engine`, `npm run verify`, link check |
 
 The two harnesses are the only automated evidence in this report; both run the shipped
 files, not test doubles of them.
@@ -121,6 +124,23 @@ This is the only issue in the new UI that a static check could not have caught.
 Screenshots of the dark/Persian and light/English variants were reviewed: frosted surface, chip,
 divider before "Add to SidePanel", legible muted tags, no clipping.
 
+### 3.1a README screenshots (this pass)
+
+The five images in `docs/screenshots/` were rendered from the shipped production bundle through a
+temporary static server plus a `chrome.*` mock (no unpacked install), then captured with headless
+Chrome 152 at `--force-device-scale-factor=2`:
+
+| File | Surface | Result |
+|---|---|---|
+| `popup-export-fa-dark.png` | Popup, Persian, dark | 4/4 tabs visible and unclipped at 400 px; detected conversation and all eight formats |
+| `popup-guard-fa-dark.png` | Popup → Prompt Guard, Persian, dark | active-conversation draft plus the "other drafts" link |
+| `studio-en-dark.png` | Studio, English, dark | message selection and live preview, no raw ISO timestamp in the header (source line hidden) |
+| `sidepanel-en-dark.png` | Side panel → Prompt vault, English, dark | three tabs fit at 400 px; saved drafts show their conversation |
+| `settings-en-light.png` | Settings, English, light | all sections render, no overflow at 1040 px |
+
+Measured after the tab-bar fix: the Persian labels have 0 px overflow and the longest English label
+("Prompt Guard") keeps 7 px of slack; the previous compact tabs clipped the fourth tab at 400 px.
+
 ### 3.2 Recorded earlier for this build line (unchanged surfaces)
 
 Captured in the previous Chromium session and still valid for the surfaces it covers
@@ -139,8 +159,9 @@ Captured in the previous Chromium session and still valid for the surfaces it co
 
 ## 4. Package facts
 
-- Folder: `release/a-max-1.2.0` — 52 files.
-- ZIP entries: `manifest.json`, `dist/`, `icons/`, `src/`, `_locales/`, `LICENSE`, `README.md`.
+- Folder: `release/a-max-1.2.0` — 53 files.
+- ZIP entries: `manifest.json`, `dist/`, `icons/`, `src/`, `_locales/`, `LICENSE`, `README.md`,
+  `README.fa.md`.
   The two verification reports stay in the repository: they quote this archive's hash, so shipping
   them inside it would make the documented value stale as soon as they were updated.
 - `app/`, `docs/`, `reference/`, `node_modules/`, `scripts/`, `.preview/` are **not** packaged
@@ -151,6 +172,8 @@ Captured in the previous Chromium session and still valid for the surfaces it co
   `storage.js` (12) and `content.js` (18); the on-demand injection list in
   `app/src/lib/chrome.ts` matches the manifest order.
 - All five version declarations agree on `1.2.0`; the packer refuses to build otherwise.
+- Archive timestamps are fixed (`SOURCE_DATE_EPOCH` can override), so the same sources always
+  produce the same ZIP and the recorded SHA-256 is reproducible.
 
 ---
 

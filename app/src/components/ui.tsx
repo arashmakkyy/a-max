@@ -112,7 +112,7 @@ export function SectionHeader({ title, action }: { title: string; action?: React
   return <div className="flex items-center justify-between mb-2"><h3 className="text-[12px] font-semibold uppercase tracking-wide text-muted">{title}</h3>{action}</div>;
 }
 
-export function Tabs<T extends string>({ tabs, value, onChange, compact }: { tabs: { id: T; label: string; icon?: string }[]; value: T; onChange: (v: T) => void; compact?: boolean }) {
+export function Tabs<T extends string>({ tabs, value, onChange, compact, showIcons = true }: { tabs: { id: T; label: string; icon?: string }[]; value: T; onChange: (v: T) => void; compact?: boolean; showIcons?: boolean }) {
   const onKey = (e: React.KeyboardEvent) => {
     const idx = tabs.findIndex(t => t.id === value); const rtl = document.documentElement.dir === 'rtl';
     const next = (e.key === 'ArrowRight') !== rtl ? 1 : (e.key === 'ArrowLeft') !== rtl ? -1 : 0;
@@ -121,10 +121,14 @@ export function Tabs<T extends string>({ tabs, value, onChange, compact }: { tab
   return (
     <div role="tablist" onKeyDown={onKey} className="flex gap-1 border-b border-border overflow-x-auto [scrollbar-width:none]">
       {tabs.map(t => (
-        <button key={t.id} role="tab" aria-selected={value === t.id} tabIndex={value === t.id ? 0 : -1} onClick={() => onChange(t.id)}
-          className={clsx('relative flex items-center gap-1.5 whitespace-nowrap px-2.5 py-2 text-[12.5px] font-medium transition-colors -mb-px border-b-2', compact && 'px-2',
+        <button key={t.id} role="tab" aria-selected={value === t.id} tabIndex={value === t.id ? 0 : -1} onClick={() => onChange(t.id)} title={t.label}
+          className={clsx('relative flex items-center gap-1.5 whitespace-nowrap px-2.5 py-2 text-[12.5px] font-medium transition-colors -mb-px border-b-2',
+            // The popup is 400px wide: let all four tabs share the row instead
+            // of pushing the last one out of view.
+            compact && 'min-w-0 flex-1 justify-center gap-1 px-1.5 text-[11.5px]',
             value === t.id ? 'text-primary border-primary' : 'text-muted border-transparent hover:text-text')}>
-          {t.icon && <Icon d={t.icon} size={15} />}{t.label}
+          {t.icon && showIcons && <Icon d={t.icon} size={15} />}
+          <span className="truncate">{t.label}</span>
         </button>
       ))}
     </div>

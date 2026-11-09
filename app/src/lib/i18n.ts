@@ -5,6 +5,7 @@ const dict = {
   surfaces: ['سطوح رابط', 'Surfaces'],
   popup: ['Popup', 'Popup'], studio: ['استودیوی پیش‌نمایش و خروجی', 'Preview & Export Studio'], sidepanel: ['پنل کناری', 'Side Panel'], settings: ['تنظیمات', 'Settings'], inpage: ['درون صفحه', 'In-page'],
   tabExport: ['خروجی گفتگو', 'Export chat'], tabGuard: ['محافظ پرامپت', 'Prompt Guard'], tabPersian: ['اصلاح فارسی', 'Persian fix'], tabSites: ['سایت‌های هوش مصنوعی', 'AI sites'],
+  tabSitesShort: ['سایت‌ها', 'Sites'],
   theme: ['تم', 'Theme'], language: ['زبان', 'Language'], dark: ['تیره', 'Dark'], light: ['روشن', 'Light'], system: ['سیستم', 'System'],
   openSidePanel: ['باز کردن پنل کناری', 'Open side panel'], openSettings: ['تنظیمات', 'Settings'],
   statusReady: ['آماده', 'Ready'], statusLoading: ['در حال دریافت', 'Loading'], statusPartial: ['ناقص', 'Partial'], statusUnsupported: ['پشتیبانی نمی‌شود', 'Unsupported'], statusError: ['خطا', 'Error'], statusNotConv: ['صفحهٔ گفتگو نیست', 'Not a conversation'], statusUnknown: ['نامشخص', 'Unknown'], statusComplete: ['کامل', 'Complete'],

@@ -54,7 +54,7 @@ export function Popup({ pageUrl }: { pageUrl: string }) {
         </span>
         <span className="flex items-center gap-1.5 text-muted"><StatusDot tone={statusMap[status][0]} />{statusMap[status][1]}</span>
       </div>
-      <div className="px-2"><Tabs<Tab> compact value={tab} onChange={setTab} tabs={[{ id: 'export', label: T('tabExport'), icon: I.download }, { id: 'guard', label: T('tabGuard'), icon: I.shield }, { id: 'persian', label: T('tabPersian'), icon: I.type }, { id: 'sites', label: T('tabSites'), icon: I.globe }]} /></div>
+      <div className="px-2"><Tabs<Tab> compact showIcons={false} value={tab} onChange={setTab} tabs={[{ id: 'export', label: T('tabExport'), icon: I.download }, { id: 'guard', label: T('tabGuard'), icon: I.shield }, { id: 'persian', label: T('tabPersian'), icon: I.type }, { id: 'sites', label: T('tabSitesShort'), icon: I.globe }]} /></div>
       <div className="flex-1 overflow-y-auto p-3">
         {tab === 'export' && <ExportTab />}
         {tab === 'guard' && <GuardTab />}

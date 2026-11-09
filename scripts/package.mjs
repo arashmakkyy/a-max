@@ -22,7 +22,7 @@ const releaseRoot = join(root, 'release');
 // Verification reports are repository-only on purpose: they quote the SHA-256 of
 // the archive, so shipping them inside it would make the documented hash stale
 // the moment the files changed.
-const ENTRIES = ['manifest.json', 'dist', 'icons', 'src', '_locales', 'LICENSE', 'README.md'];
+const ENTRIES = ['manifest.json', 'dist', 'icons', 'src', '_locales', 'LICENSE', 'README.md', 'README.fa.md'];
 
 function fail(message) {
   console.error(`\n✗ ${message}\n`);
@@ -126,7 +126,18 @@ function crc32(buffer) {
   return (crc ^ 0xffffffff) >>> 0;
 }
 
-function dosStamp(date = new Date()) {
+/**
+ * Archive timestamps are fixed so the same sources always produce a byte-identical
+ * ZIP — the reports quote the SHA-256, and anyone must be able to reproduce it.
+ * Set `SOURCE_DATE_EPOCH` (seconds) to override.
+ */
+function archiveDate() {
+  const epoch = Number(process.env.SOURCE_DATE_EPOCH);
+  if (Number.isFinite(epoch) && epoch > 0) return new Date(epoch * 1000);
+  return new Date(2026, 10, 9, 0, 0, 0);
+}
+
+function dosStamp(date = archiveDate()) {
   const year = Math.max(1980, date.getFullYear());
   const time = ((date.getHours() & 0x1f) << 11) | ((date.getMinutes() & 0x3f) << 5) | ((date.getSeconds() >> 1) & 0x1f);
   const day = (((year - 1980) & 0x7f) << 9) | (((date.getMonth() + 1) & 0x0f) << 5) | (date.getDate() & 0x1f);

@@ -46,11 +46,14 @@ Then reload the unpacked extension in `chrome://extensions`.
 5. **No hard-coded Persian UI strings in `content.js`.** Add both languages to `src/shared/i18n.js`.
 6. **Report tests honestly.** Say which checks ran and on what evidence level; never describe a
    simulated check as a live-site test. `TEST_REPORT.md` explains the labels.
+7. **Keep both READMEs in sync.** Any user-visible change goes into `README.md` (English) and
+   `README.fa.md` (Persian) in the same pull request; both files ship inside the package.
 
 ## Pull requests
 
 - One topic per pull request, with a short description of the user-visible change.
-- Run `npm run build` in `app/` and `npm run verify` at the repository root before pushing.
+- Run `npm run build` in `app/`, then `npm run verify` and `node scripts/check-readme-links.mjs`
+  at the repository root before pushing (CI runs the same gates).
 - If you touch behaviour covered by `TEST_REPORT.md`, update the report.
 
 By contributing you agree that your contribution is licensed under the MIT License.

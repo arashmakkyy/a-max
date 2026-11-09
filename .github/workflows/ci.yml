@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build, type-check and verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install UI dependencies
+        working-directory: app
+        run: npm ci
+
+      - name: Type-check the UI
+        working-directory: app
+        run: npx tsc --noEmit
+
+      - name: Build the UI
+        working-directory: app
+        run: npm run build
+
+      # The repository must stay installable without a build, so the committed
+      # dist/ (and the engine copy used by the extension pages) has to match
+      # what the current sources produce.
+      - name: Committed build output is up to date
+        run: git diff --exit-code -- dist app/public/engine
+
+      - name: Verify package inputs
+        run: npm run verify
+
+      - name: Check README links and screenshots
+        run: node scripts/check-readme-links.mjs
