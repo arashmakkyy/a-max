@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "A.max — AI Chat Exporter, Crash-Proof Prompt Guard & Persian BiDi Fixer",
+    "description": "Official extension name"
+  },
+  "extensionDescription": {
+    "message": "Export AI chats to PDF, Word, Markdown, PNG & JSON, auto-save prompts against power loss, and fix Persian RTL/BiDi text across 18+ AI sites. Created by Arash Makki.",
+    "description": "Official extension description"
+  }
+}

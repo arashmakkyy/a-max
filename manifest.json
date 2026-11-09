@@ -1,0 +1,187 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "short_name": "A.max",
+  "version": "1.2.0",
+  "description": "__MSG_extensionDescription__",
+  "author": "Arash Makki",
+  "default_locale": "fa",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "dist/index.html#popup",
+    "default_title": "A.max — by Arash Makki",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "options_ui": {
+    "page": "dist/index.html#settings",
+    "open_in_tab": true
+  },
+  "side_panel": {
+    "default_path": "dist/index.html#sidepanel"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "activeTab",
+    "contextMenus",
+    "sidePanel",
+    "scripting",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://grok.com/*",
+    "https://x.com/*",
+    "https://chat.deepseek.com/*",
+    "https://www.perplexity.ai/*",
+    "https://perplexity.ai/*",
+    "https://chat.qwen.ai/*",
+    "https://www.qianwen.com/*",
+    "https://tongyi.aliyun.com/*",
+    "https://kimi.com/*",
+    "https://www.kimi.com/*",
+    "https://kimi.ai/*",
+    "https://www.kimi.ai/*",
+    "https://kimi.moonshot.cn/*",
+    "https://copilot.microsoft.com/*",
+    "https://copilot.com/*",
+    "https://m365.cloud.microsoft/*",
+    "https://github.com/*",
+    "https://poe.com/*",
+    "https://aistudio.google.com/*",
+    "https://notebooklm.google.com/*",
+    "https://notebook.google.com/*",
+    "https://chat.mistral.ai/*",
+    "https://huggingface.co/*",
+    "https://www.doubao.com/*",
+    "https://yuanbao.tencent.com/*",
+    "https://www.google.com/*",
+    "https://www.google.co.uk/*",
+    "https://www.google.com.hk/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://grok.com/*",
+        "https://x.com/*",
+        "https://chat.deepseek.com/*",
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*",
+        "https://chat.qwen.ai/*",
+        "https://www.qianwen.com/*",
+        "https://tongyi.aliyun.com/*",
+        "https://kimi.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.ai/*",
+        "https://www.kimi.ai/*",
+        "https://kimi.moonshot.cn/*",
+        "https://copilot.microsoft.com/*",
+        "https://copilot.com/*",
+        "https://m365.cloud.microsoft/*",
+        "https://github.com/*",
+        "https://poe.com/*",
+        "https://aistudio.google.com/*",
+        "https://notebooklm.google.com/*",
+        "https://notebook.google.com/*",
+        "https://chat.mistral.ai/*",
+        "https://huggingface.co/*",
+        "https://www.doubao.com/*",
+        "https://yuanbao.tencent.com/*",
+        "https://www.google.com/*",
+        "https://www.google.co.uk/*",
+        "https://www.google.com.hk/*"
+      ],
+      "js": [
+        "src/shared/platforms.js",
+        "src/shared/i18n.js",
+        "src/shared/persian-utils.js",
+        "src/engine/util.js",
+        "src/engine/extract.js",
+        "src/engine/sites.js",
+        "src/engine/format.js",
+        "src/engine/zip.js",
+        "src/engine/docx.js",
+        "src/engine/image.js",
+        "src/engine/bundle.js",
+        "src/shared/draft-scope.js",
+        "src/shared/storage.js",
+        "src/shared/exporters.js",
+        "src/vendor/zip-store.js",
+        "src/shared/exporters-v2.js",
+        "src/shared/engine-bridge.js",
+        "src/shared/history.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "src/content/content.css",
+        "src/content/theme-content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/icon-16.png",
+        "icons/icon-32.png",
+        "icons/icon-48.png",
+        "icons/icon-128.png"
+      ],
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://grok.com/*",
+        "https://x.com/*",
+        "https://chat.deepseek.com/*",
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*",
+        "https://chat.qwen.ai/*",
+        "https://www.qianwen.com/*",
+        "https://tongyi.aliyun.com/*",
+        "https://kimi.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.ai/*",
+        "https://www.kimi.ai/*",
+        "https://kimi.moonshot.cn/*",
+        "https://copilot.microsoft.com/*",
+        "https://copilot.com/*",
+        "https://m365.cloud.microsoft/*",
+        "https://github.com/*",
+        "https://poe.com/*",
+        "https://aistudio.google.com/*",
+        "https://notebooklm.google.com/*",
+        "https://notebook.google.com/*",
+        "https://chat.mistral.ai/*",
+        "https://huggingface.co/*",
+        "https://www.doubao.com/*",
+        "https://yuanbao.tencent.com/*",
+        "https://www.google.com/*",
+        "https://www.google.co.uk/*",
+        "https://www.google.com.hk/*"
+      ]
+    }
+  ]
+}

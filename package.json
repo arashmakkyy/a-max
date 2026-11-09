@@ -1,0 +1,34 @@
+{
+  "name": "a-max",
+  "version": "1.2.0",
+  "description": "A.max — local-first browser extension for AI conversation exports, prompt recovery and Persian BiDi tools (React UI build)",
+  "author": {
+    "name": "Arash Makki",
+    "url": "https://github.com/arashmakkyy"
+  },
+  "homepage": "https://github.com/arashmakkyy/a-max#readme",
+  "license": "MIT",
+  "scripts": {
+    "package": "node scripts/package.mjs",
+    "verify": "node scripts/package.mjs --verify-only"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arashmakkyy/a-max.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arashmakkyy/a-max/issues"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai-exporter",
+    "chatgpt-to-pdf",
+    "claude-exporter",
+    "gemini-exporter",
+    "prompt-autosave",
+    "persian-rtl",
+    "bidi-fixer",
+    "arash-makki",
+    "a-max"
+  ]
+}

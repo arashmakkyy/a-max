@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Locally produced installable packages (the released ZIP lives on GitHub Releases)
+release/
+*.zip
+*.rar
+
+# Design reference material that is not part of the extension
+reference/
+
+# Scratch previews used while designing the in-page menu
+.preview/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

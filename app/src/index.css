@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* Self-hosted Vazirmatn (OFL-1.1) so the extension renders identically offline. */
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/vazirmatn-arabic.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC7, U+10EC9-10EEE, U+10EF0-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/vazirmatn-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/vazirmatn-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root, [data-theme="dark"] {
+  --primary: #14B8A6;
+  --primary-dark: #0F766E;
+  --accent: #22D3EE;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --bg: #0B0F12;
+  --surface: #111827;
+  --raised: #1A2229;
+  --border: #24313A;
+  --text: #F1F5F9;
+  --muted: #94A3B8;
+  --on-primary: #06201d;
+  --hover: rgba(255,255,255,0.04);
+  --selected: rgba(20,184,166,0.12);
+  --overlay: rgba(2,6,10,0.7);
+}
+[data-theme="light"] {
+  --primary: #0F766E;
+  --primary-dark: #0B5A54;
+  --accent: #0E7490;
+  --bg: #F6F8FA;
+  --surface: #FFFFFF;
+  --raised: #EEF2F5;
+  --border: #D6E0E5;
+  --text: #14232B;
+  --muted: #4C6270;
+  --on-primary: #FFFFFF;
+  --hover: rgba(0,0,0,0.04);
+  --selected: rgba(15,118,110,0.10);
+  --overlay: rgba(20,35,43,0.45);
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-on-primary: var(--on-primary);
+  --color-hover: var(--hover);
+  --color-selected: var(--selected);
+}
+
+html, body, #root { height: 100%; }
+
+/* Chrome popup: fixed card sized for the browser action window. */
+html[data-surface="popup"], html[data-surface="popup"] body, html[data-surface="popup"] #root {
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+}
+html[data-surface="sidepanel"] body { min-width: 300px; }
+html[data-surface="studio"] body, html[data-surface="settings"] body { min-width: 320px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Vazirmatn", "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+[dir="ltr"] body, body[dir="ltr"], .ltr-ui { font-family: "Inter", "Vazirmatn", system-ui, sans-serif; line-height: 1.55; }
+code, pre, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; direction: ltr; unicode-bidi: isolate; }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.tabular { font-variant-numeric: tabular-nums; }
+*:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* Rendered markdown preview */
+.md { line-height: 1.8; }
+.md h1,.md h2,.md h3 { font-weight: 600; margin: .8em 0 .4em; }
+.md h1{font-size:1.4em}.md h2{font-size:1.25em}.md h3{font-size:1.1em}
+.md p { margin: .4em 0; }
+.md ul,.md ol { padding-inline-start: 1.4em; margin: .4em 0; }
+.md ul{list-style:disc}.md ol{list-style:decimal}
+.md blockquote { border-inline-start: 3px solid var(--primary); padding-inline-start: .8em; opacity:.9; margin:.5em 0;}
+.md pre { direction: ltr; text-align: left; background: rgba(127,127,127,.12); border:1px solid var(--border); border-radius: 8px; padding: 10px 12px; overflow-x: auto; font-size: 12.5px; margin:.5em 0;}
+.md code { direction: ltr; unicode-bidi: isolate; background: rgba(127,127,127,.15); padding: 1px 5px; border-radius: 5px; font-size: .9em; }
+.md pre code { background: none; padding: 0; }
+.md table { border-collapse: collapse; margin: .6em 0; display:block; overflow-x:auto; max-width:100%; }
+.md th,.md td { border: 1px solid var(--border); padding: 5px 10px; }
+.md th { background: rgba(127,127,127,.1); font-weight:600; }
+.md .tbl-dashed th,.md .tbl-dashed td { border-style: dashed; }
+.md .tbl-borderless th,.md .tbl-borderless td { border: none; border-bottom: 1px solid var(--border); }
+.md a { color: var(--primary); text-decoration: underline; }
+.md .thinking { border:1px dashed var(--border); border-radius:8px; padding:8px 10px; font-size:.9em; opacity:.85; margin:.5em 0;}

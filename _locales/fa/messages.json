@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "A.max — جعبه ابزار هوش مصنوعی، خروجی چت، محافظ پرامپت و اصلاح متن فارسی",
+    "description": "نام رسمی افزونه"
+  },
+  "extensionDescription": {
+    "message": "خروجی حرفه‌ای چت‌های هوش مصنوعی (PDF, Word, Markdown, PNG, JSON)، ذخیره خودکار پرامپت ضد قطع برق و اصلاح راست‌چین/دوجهته فارسی. سازنده: Arash Makki",
+    "description": "توضیحات رسمی افزونه"
+  }
+}

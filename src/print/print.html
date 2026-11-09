@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A.max — پیش‌نمایش چاپ / PDF</title>
+  <style>
+    @font-face {
+      font-family: 'Vazirmatn';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('../../dist/fonts/vazirmatn-arabic.woff2') format('woff2');
+    }
+    :root {
+      color-scheme: dark;
+      --bg: #080f12;
+      --surface: #111827;
+      --border: #24313a;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #14b8a6;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-inline-end: auto;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .brand strong { color: var(--text); font-size: 14px; }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(20, 184, 166, .14);
+    }
+    button {
+      font: inherit;
+      font-size: 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #16212a;
+      color: var(--text);
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    button:hover { background: #1b2a34; border-color: #2f434f; }
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #04211d;
+      font-weight: 700;
+    }
+    button.primary:hover { background: #10a597; border-color: #10a597; }
+    .hint {
+      font-size: 11.5px;
+      color: var(--muted);
+      padding: 8px 16px;
+      background: #0c1418;
+      border-bottom: 1px solid var(--border);
+    }
+    .stage { flex: 1; min-height: 0; padding: 0; background: #0c1418; }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+      display: block;
+    }
+    .fallback {
+      padding: 40px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 2;
+    }
+    @media print {
+      .bar, .hint { display: none !important; }
+      body { background: #fff; }
+      .stage { padding: 0; }
+      iframe { height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <div class="brand">
+      <span class="dot"></span>
+      <strong>A.max</strong>
+      <span>پیش‌نمایش چاپ · Arash Makki · MIT</span>
+    </div>
+    <button type="button" id="btn-print" class="primary">چاپ / ذخیره به‌عنوان PDF</button>
+    <button type="button" id="btn-html">دانلود فایل HTML</button>
+    <button type="button" id="btn-close">بستن</button>
+  </div>
+  <div class="hint">
+    در پنجره چاپ، مقصد را روی «Save as PDF» بگذارید تا فایل PDF متنی و قابل جستجو ذخیره شود.
+  </div>
+  <div class="stage" id="stage">
+    <iframe id="frame" title="پیش‌نمایش سند"></iframe>
+  </div>
+  <script src="print.js"></script>
+</body>
+</html>

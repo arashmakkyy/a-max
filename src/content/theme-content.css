@@ -1,0 +1,13 @@
+/* Scoped in-page controls only; do not leak app styles into websites. */
+.am-floating-dock,.am-single-export-menu,.am-recovery-banner,.am-tool-toast{font-family:'Vazirmatn',Tahoma,Arial,sans-serif!important;color:#f1f5f9!important;background:#111827!important;border:1px solid #24313a!important;box-shadow:0 14px 42px rgba(0,0,0,.32)!important;line-height:1.65!important}
+.am-floating-dock{border-radius:999px!important;padding:5px 6px 5px 8px!important;background:rgba(11,15,18,.94)!important}
+.am-dock-btn{background:#1a2229!important;color:#dbe6e9!important;border:1px solid #24313a!important;border-radius:999px!important}
+.am-dock-btn:hover{background:#123b38!important;color:#4fe5d6!important;border-color:#14b8a6!important}
+.am-dock-btn.am-dock-primary{background:linear-gradient(180deg,#14b8a6,#0f766e)!important;border-color:#14b8a6!important;color:#04211f!important}
+.am-dock-btn.am-dock-primary:hover{background:linear-gradient(180deg,#2dd4bf,#0d9488)!important;border-color:#2dd4bf!important;color:#031917!important}
+.am-single-export-btn{background:#123b38!important;color:#4fe5d6!important;border-color:#237d73!important;border-radius:8px!important}
+.am-single-menu-item:hover{background:#123b38!important;color:#4fe5d6!important}
+.am-recovery-banner{border-radius:14px!important;padding:16px!important}
+.am-btn-restore{background:#14b8a6!important;color:#062522!important;border-radius:8px!important}
+.am-btn-dismiss{border-radius:8px!important}
+.am-recovery-preview{background:#1a2229!important;border-radius:9px!important}
